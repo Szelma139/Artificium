@@ -1,13 +1,53 @@
-import { MessageBox } from "./components/MessageBox/MessageBox";
+import { SelectedItem } from "./atoms/SelectedItem";
 import { AppBackground } from "./atoms/Utility/AppBackground";
 import "./index.css";
+
 
 function App() {
     return (
     <AppBackground>
+        <SelectedItem/>
+        <SelectedItem/>
+        <SelectedItem/>
+    </AppBackground>
+    );
+}
+
+export default App;
+
+
+// 
+// 
+// 
+/*
+// 
+    const { openMessageBox, MessageBox } = useMessageBox({ text: "Hello"});
+    const handleClick = ()=> {
+        openMessageBox();
+        setTimeout(()=> console.log("dupcia"), 500);
+    <AppBackground>
+        <button onClick={handleClick}> KLIK</button>
+          <MessageBox/>
+    </AppBackground>import { useMessageBox } from "./components/MessageBox/MessageBox";
+import { AppBackground } from "./atoms/Utility/AppBackground";
+import "./index.css";
+
+
+function App() {
+    const { openMessageBox, MessageBox } = useMessageBox({ text: "Hello"});
+    const handleClick = ()=> {
+        openMessageBox();
+        setTimeout(()=> console.log("dupcia"), 500);
+    }
+    return (
+    <AppBackground>
+        <button onClick={handleClick}> KLIK</button>
           <MessageBox/>
     </AppBackground>
     );
 }
 
 export default App;
+
+
+*/

@@ -1,3 +1,5 @@
+import React, { useState } from 'react';
+
 import { Modal } from "../../atoms/Modals/Modal";
 import { Button } from "../../atoms/Buttons/Button";
 import { HeaderText } from "../../atoms/Header/HeaderText";
@@ -8,11 +10,33 @@ type TextProps = {
   text?: string;
 };
 
-export const MessageBox = ({
+export const useMessageBox = ({
   text = "Are you sure you want to proceed with this action ?",
 }: TextProps) => {
-  return (
-    <Modal>
+  const [isOpen, setIsOpen] = useState(false);
+  const [resolveCallback, setResolveCallback] = useState(null);
+
+  const openMessageBox = () => {
+    setIsOpen(true);
+
+    return new Promise((resolve) => {
+      setResolveCallback(() => resolve);
+    });
+  };
+
+  const handleOkClick = () => {
+    setIsOpen(false);
+    resolveCallback(true);
+  };
+
+  const handleCancelClick = () => {
+    setIsOpen(false);
+    resolveCallback(false);
+  };
+
+  const MessageBox = () => (
+    <>
+    {isOpen && ( <Modal>
       <MessageBoxTopRow>
         <HeaderText text="Confirm Action" />
         <CloseButton />
@@ -33,8 +57,11 @@ export const MessageBox = ({
         />
         <Button text="Proceed" />
       </ButtonGroupRow>
-    </Modal>
+    </Modal>)}
+    </>
+    
   );
+  return { openMessageBox, MessageBox };
 };
 
 const CloseButton = () => {
@@ -62,3 +89,56 @@ const CloseButton = () => {
     </button>
   );
 };
+
+
+
+//usage
+// const MyComponent = () => {
+//   const { openMessageBox, MessageBox } = useMessageBox();
+
+//   const handleClick = async () => {
+//     const result = await openMessageBox('Are you sure?');
+//     console.log('User clicked:', result);
+//   };
+
+//   return (
+//     <div>
+//       <button onClick={handleClick}>Show Message Box</button>
+//       <MessageBox />
+//     </div>
+//   );
+// };
+/**
+ * 
+ * 
+// 
+    const { openMessageBox, MessageBox } = useMessageBox({ text: "Hello"});
+    const handleClick = ()=> {
+        openMessageBox();
+        setTimeout(()=> console.log("dupcia"), 500);
+    <AppBackground>
+        <button onClick={handleClick}> KLIK</button>
+          <MessageBox/>
+    </AppBackground>import { useMessageBox } from "./components/MessageBox/MessageBox";
+import { AppBackground } from "./atoms/Utility/AppBackground";
+import "./index.css";
+
+
+function App() {
+    const { openMessageBox, MessageBox } = useMessageBox({ text: "Hello"});
+    const handleClick = ()=> {
+        openMessageBox();
+        setTimeout(()=> console.log("dupcia"), 500);
+    }
+    return (
+    <AppBackground>
+        <button onClick={handleClick}> KLIK</button>
+          <MessageBox/>
+    </AppBackground>
+    );
+}
+
+export default App;
+
+
+*/

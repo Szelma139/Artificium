@@ -1,14 +1,13 @@
 import { SelectedItem } from "./atoms/SelectedItem";
 import { AppBackground } from "./atoms/Utility/AppBackground";
 import "./index.css";
+import { LoginPage } from "./screens/LoginPage";
 
 
 function App() {
     return (
     <AppBackground>
-        <SelectedItem/>
-        <SelectedItem/>
-        <SelectedItem/>
+        <LoginPage/>
     </AppBackground>
     );
 }

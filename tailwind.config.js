@@ -12,6 +12,7 @@ module.exports = {
             'grayish': '#ffffff14',
             'backgroundGray': 'rgba(26, 29, 33, 0.96)',
             'steem-green-500': '#B6F09C',
+            'noble-black-200': '#CDCECF',
             'noble-black-300': '#9B9C9E',
             'noble-black-400': '#686B6E',
             'noble-black-500': '#363A3D',
@@ -21,6 +22,7 @@ module.exports = {
           },
           boxShadow: {
             'gray-shade': '0px 24px 64px -16px rgba(0, 0, 0, 0.24), inset 16px 24px 64px -24px rgba(255, 255, 255, 0.04), inset 0px 8px 12px rgba(255, 255, 255, 0.04)',
+            'heisenberg-blue': '0px 0px 0px 4px rgba(132, 220, 245, 0.24)',
           },
           backgroundImage: {
             'glass-stroke': 'linear-gradient(117.58deg, rgba(215, 237, 237, 0.16) -47.79%, rgba(204, 235, 235, 0) 100%)',
@@ -31,5 +33,6 @@ module.exports = {
       },
     plugins: [
         require('preline/plugin'),
+        require("@tailwindcss/forms"),
     ],
   }

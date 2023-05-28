@@ -1,14 +1,14 @@
 import { SelectedItem } from "./atoms/SelectedItem";
-import { AppBackground } from "./atoms/Utility/AppBackground";
+import AppFullWidthHeight from "./atoms/Utility/AppBackground";
 import "./index.css";
 import { LoginPage } from "./screens/LoginPage";
 
 
 function App() {
     return (
-    <AppBackground>
+    <AppFullWidthHeight>
         <LoginPage/>
-    </AppBackground>
+    </AppFullWidthHeight>
     );
 }
 

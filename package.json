@@ -10,6 +10,7 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "@tailwindcss/forms": "^0.5.3",
     "add": "^2.0.6",
     "preline": "^1.8.0",
     "prop-types": "^15.8.1",

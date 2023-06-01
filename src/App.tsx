@@ -3,7 +3,6 @@ import AppFullWidthHeight from "./atoms/Utility/AppBackground";
 import "./index.css";
 import { LoginPage } from "./screens/LoginPage";
 
-
 function App() {
     return (
     <AppFullWidthHeight>
